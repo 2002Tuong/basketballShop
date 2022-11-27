@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Basketball store</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="shop_slogan">make your dream come true</string>
+    <string name="started_btn">Started</string>
+    <!--shoes name -->
+    <string name="shoes_1">Dame 8 Mr.incredible</string>
+    <string name="shoes_2">Dame 8</string>
+    <!--title-->
+    <string name="title_list_item">SHOP PRODUCTS</string>
+    <string name="title_detail">DETAIL</string>
+    <string name="title_cart">MY CART</string>
+    <string name="description">DESCRIPTION</string>
+    <string name="size">SIZE</string>
+    <string name="place_holder">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="delete_question">You don\'t want to buy this shoes, do you ?</string>
+    <string name="no">no</string>
+    <string name="yes">yes</string>
+    <string name="my_cart">my cart</string>
+    <string name="title_activity_maps">MapsActivity</string>
+</resources>
