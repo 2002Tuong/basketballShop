@@ -29,6 +29,9 @@
             app:destination="@id/detailFragment"
             app:enterAnim="@android:anim/fade_in"
             app:popEnterAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_listItemFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
 
     </fragment>
     <fragment
@@ -41,13 +44,10 @@
             app:destination="@id/listItemFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
-        <action
-            android:id="@+id/action_startFragment_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.example.midtermapp.UI.MapsFragment"
-        android:label="fragment_maps"
+        android:label="map"
         tools:layout="@layout/fragment_maps" />
 </navigation>

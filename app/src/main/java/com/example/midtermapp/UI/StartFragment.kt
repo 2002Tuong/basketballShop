@@ -28,11 +28,7 @@ class StartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //(requireActivity() as AppCompatActivity).supportActionBar?.hide()
-        binding.mapBtn.setOnClickListener{
-            val action = StartFragmentDirections.actionStartFragmentToMapsFragment()
-            findNavController().navigate(action)
-        }
+
     }
 
 
