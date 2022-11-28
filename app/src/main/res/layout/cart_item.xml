@@ -10,7 +10,8 @@
         app:layout_constraintTop_toTopOf="@id/thumbnail_img_cardview"
         app:layout_constraintBottom_toBottomOf="@id/thumbnail_img_cardview"
         app:layout_constraintRight_toLeftOf="@id/thumbnail_img_cardview"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:buttonTint="@color/orange_200"/>
     <androidx.cardview.widget.CardView
         android:id="@+id/thumbnail_img_cardview"
         android:layout_width="wrap_content"
@@ -31,7 +32,7 @@
 
     <LinearLayout
         android:id="@+id/name_and_price_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingStart="8dp"
@@ -41,16 +42,16 @@
         app:layout_constraintBottom_toBottomOf="@id/thumbnail_img_cardview">
         <TextView
             android:id="@+id/name_tv"
-            android:layout_width="180dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/shoes_1"
-            android:padding="8dp"
+
             />
         <TextView
             android:id="@+id/price_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+
             android:text="$113.00"/>
 
     </LinearLayout>
@@ -60,6 +61,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/name_and_price_layout"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/delete_btn"
         android:text="44"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="13dp"/>
