@@ -39,9 +39,9 @@ class CartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = CartItemAdapter {
-            showConfirmationDialogToDelete(it)
-
+        val adapter = CartItemAdapter({
+            showConfirmationDialogToDelete(it)}) {
+            viewModel.updateItem(it)
         }
         binding.cartRecycleView.adapter = adapter
         binding.cartRecycleView.layoutManager = LinearLayoutManager(this.context)
@@ -49,7 +49,7 @@ class CartFragment : Fragment() {
             adapter.submitList(it)
         }
         binding.buyBtn.setOnClickListener {
-            viewModel.buyAll()
+            viewModel.buyItem()
             Toast.makeText(this.context,"thank you for buy our product", Toast.LENGTH_SHORT).show()
         }
     }

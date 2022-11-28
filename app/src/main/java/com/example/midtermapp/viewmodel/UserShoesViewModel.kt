@@ -31,7 +31,7 @@ class UserShoesViewModel(private val userShoesDao: UserShoesDao): ViewModel() {
             userShoesDao.delete(shoes)
         }
     }
-    private fun updateItem(shoes : UserShoes) {
+    fun updateItem(shoes : UserShoes) {
         viewModelScope.launch(Dispatchers.IO) {
             userShoesDao.update(shoes)
         }
@@ -40,7 +40,12 @@ class UserShoesViewModel(private val userShoesDao: UserShoesDao): ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             userShoesDao.deleteAll()
         }
+    }
 
+    fun buyItem() {
+        viewModelScope.launch(Dispatchers.IO) {
+            userShoesDao.bought()
+        }
     }
 }
 class UserShoesViewModelFactory(private val userShoesDao: UserShoesDao) : ViewModelProvider.Factory {

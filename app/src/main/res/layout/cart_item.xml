@@ -3,14 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <CheckBox
+        android:id="@+id/is_buy_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/thumbnail_img_cardview"
+        app:layout_constraintBottom_toBottomOf="@id/thumbnail_img_cardview"
+        app:layout_constraintRight_toLeftOf="@id/thumbnail_img_cardview"
+        app:layout_constraintLeft_toLeftOf="parent"/>
     <androidx.cardview.widget.CardView
         android:id="@+id/thumbnail_img_cardview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/is_buy_checkbox"
         app:layout_constraintTop_toTopOf="parent">
         <ImageView
             android:id="@+id/thumbnail_img"
@@ -25,13 +34,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="10dp"
         app:layout_constraintLeft_toRightOf="@id/thumbnail_img_cardview"
         app:layout_constraintTop_toTopOf="@id/thumbnail_img_cardview"
         app:layout_constraintBottom_toBottomOf="@id/thumbnail_img_cardview">
         <TextView
             android:id="@+id/name_tv"
-            android:layout_width="190dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:text="@string/shoes_1"
             android:padding="8dp"

@@ -8,11 +8,12 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.midtermapp.database.UserShoes
+import com.example.midtermapp.database.UserShoesDao
 import com.example.midtermapp.databinding.CartItemBinding
 import java.text.NumberFormat
 import java.util.*
 
-class CartItemAdapter(private val delete: (UserShoes)-> Unit) : ListAdapter<UserShoes, CartItemAdapter.CartViewHolder>(DiffCallBack) {
+class CartItemAdapter(private val delete: (UserShoes)-> Unit, private val update: (UserShoes) -> Unit) : ListAdapter<UserShoes, CartItemAdapter.CartViewHolder>(DiffCallBack) {
     class CartViewHolder(val binding: CartItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun binding(shoes: UserShoes) {
             binding.apply {
@@ -20,7 +21,7 @@ class CartItemAdapter(private val delete: (UserShoes)-> Unit) : ListAdapter<User
                 nameTv.text = shoes.itemName
                 priceTv.text= NumberFormat.getCurrencyInstance().format(shoes.itemPrice)
                 sizeTv.text = shoes.size.toString()
-
+                isBuyCheckbox.isChecked = shoes.isBuy
             }
         }
     }
@@ -37,6 +38,10 @@ class CartItemAdapter(private val delete: (UserShoes)-> Unit) : ListAdapter<User
         holder.binding(item)
         holder.binding.deleteBtn.setOnClickListener {
             delete(item)
+        }
+        holder.binding.isBuyCheckbox.setOnClickListener {
+            val newUpdateItem = item.copy(isBuy = !item.isBuy)
+            update(newUpdateItem)
         }
     }
 

@@ -18,4 +18,6 @@ interface UserShoesDao {
     suspend fun delete(shoes: UserShoes)
     @Update
     suspend fun update(shoes: UserShoes)
+    @Query("delete from UserShoes where is_buy == 1")
+    suspend fun bought()
 }
