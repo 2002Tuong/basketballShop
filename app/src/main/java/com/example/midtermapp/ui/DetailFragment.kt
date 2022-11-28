@@ -1,4 +1,4 @@
-package com.example.midtermapp.UI
+package com.example.midtermapp.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -20,7 +20,6 @@ import com.example.midtermapp.datanetwork.Shoes
 import com.example.midtermapp.viewmodel.UserShoesViewModel
 import com.example.midtermapp.viewmodel.UserShoesViewModelFactory
 import java.text.NumberFormat
-import java.util.*
 
 
 class DetailFragment : Fragment() {

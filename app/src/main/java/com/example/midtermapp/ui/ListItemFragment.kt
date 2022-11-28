@@ -1,4 +1,4 @@
-package com.example.midtermapp.UI
+package com.example.midtermapp.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

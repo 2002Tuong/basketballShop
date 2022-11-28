@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.example.midtermapp.UI.CartFragment"
+        android:name="com.example.midtermapp.ui.CartFragment"
         android:label="@string/title_cart"
         tools:layout="@layout/fragment_cart" />
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.midtermapp.UI.DetailFragment"
+        android:name="com.example.midtermapp.ui.DetailFragment"
         android:label="@string/title_detail"
         tools:layout="@layout/fragment_detail" >
         <argument
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/listItemFragment"
-        android:name="com.example.midtermapp.UI.ListItemFragment"
+        android:name="com.example.midtermapp.ui.ListItemFragment"
         android:label="@string/title_list_item"
         tools:layout="@layout/fragment_list_item" >
         <action
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/startFragment"
-        android:name="com.example.midtermapp.UI.StartFragment"
+        android:name="com.example.midtermapp.ui.StartFragment"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
@@ -47,7 +47,7 @@
     </fragment>
     <fragment
         android:id="@+id/mapsFragment"
-        android:name="com.example.midtermapp.UI.MapsFragment"
+        android:name="com.example.midtermapp.ui.MapsFragment"
         android:label="map"
         tools:layout="@layout/fragment_maps" />
 </navigation>

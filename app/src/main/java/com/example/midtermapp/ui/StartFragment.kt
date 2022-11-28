@@ -1,4 +1,4 @@
-package com.example.midtermapp.UI
+package com.example.midtermapp.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.midtermapp.R
 import com.example.midtermapp.databinding.FragmentStartBinding
 
 
