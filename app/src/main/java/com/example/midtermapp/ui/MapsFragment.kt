@@ -86,6 +86,7 @@ class MapsFragment : Fragment() {
                     .icon(basketballIcon)
 
             )?.tag = it
+
         }
     }
 

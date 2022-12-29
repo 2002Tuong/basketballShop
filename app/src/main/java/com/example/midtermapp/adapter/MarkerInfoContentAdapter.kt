@@ -9,8 +9,8 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
 
 class MarkerInfoContentAdapter(private val context: Context) : GoogleMap.InfoWindowAdapter {
-    override fun getInfoContents(p0: Marker): View? {
-        val shopLocation = p0.tag as ShopLocation ?: return null
+    override fun getInfoContents(p0: Marker): View {
+        val shopLocation = p0.tag as ShopLocation
         val binding = MarketInfoContentBinding.inflate(LayoutInflater.from(context))
         binding.textViewTitle.text = shopLocation.name
         binding.textViewAddress.text = shopLocation.address

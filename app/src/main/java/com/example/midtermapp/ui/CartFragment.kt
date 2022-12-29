@@ -42,11 +42,15 @@ class CartFragment : Fragment() {
         val adapter = CartItemAdapter({
             showConfirmationDialogToDelete(it)}) {
             viewModel.updateItem(it)
+            viewModel.calculatePrice(it)
         }
         binding.cartRecycleView.adapter = adapter
         binding.cartRecycleView.layoutManager = LinearLayoutManager(this.context)
         viewModel.getAll().observe(this.viewLifecycleOwner) {
             adapter.submitList(it)
+        }
+        viewModel.totalPrice.observe(this.viewLifecycleOwner) {
+            binding.totalPrice.text = it
         }
         binding.buyBtn.setOnClickListener {
             viewModel.buyItem()

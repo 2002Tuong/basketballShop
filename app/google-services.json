@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "940173909338",
+    "project_id": "basketballshop-c2c87",
+    "storage_bucket": "basketballshop-c2c87.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940173909338:android:3ef0515765a9414e23e763",
+        "android_client_info": {
+          "package_name": "com.example.midtermapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940173909338-rg2j658euf5u41gpv71kffp166os9rim.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARIxCYDy9CgsYFZXXiFSOzbQ-_Xa3is_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940173909338-rg2j658euf5u41gpv71kffp166os9rim.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

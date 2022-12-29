@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/startFragment">
+    app:startDestination="@id/listItemFragment">
 
     <fragment
         android:id="@+id/cartFragment"
@@ -33,17 +33,6 @@
             android:id="@+id/action_listItemFragment_to_mapsFragment"
             app:destination="@id/mapsFragment" />
 
-    </fragment>
-    <fragment
-        android:id="@+id/startFragment"
-        android:name="com.example.midtermapp.ui.StartFragment"
-        android:label="fragment_start"
-        tools:layout="@layout/fragment_start" >
-        <action
-            android:id="@+id/action_startFragment_to_listItemFragment"
-            app:destination="@id/listItemFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/mapsFragment"

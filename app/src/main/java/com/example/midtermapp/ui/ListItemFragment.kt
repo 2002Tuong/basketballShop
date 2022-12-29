@@ -31,10 +31,7 @@ class ListItemFragment : Fragment() {
         }
         binding.listItemRecyclerview.adapter = adapter
         binding.listItemRecyclerview.layoutManager = LinearLayoutManager(requireContext())
-        binding.mapBtn.setOnClickListener{
-            val action = ListItemFragmentDirections.actionListItemFragmentToMapsFragment()
-            findNavController().navigate(action)
-        }
+
     }
 
 }
