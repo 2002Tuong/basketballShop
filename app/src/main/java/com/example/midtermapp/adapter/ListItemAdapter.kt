@@ -1,6 +1,7 @@
 package com.example.midtermapp.adapter
 
 import android.content.Context
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.net.toUri
@@ -10,7 +11,7 @@ import com.example.midtermapp.R
 import com.example.midtermapp.datanetwork.Shoes
 import com.example.midtermapp.databinding.ListItemBinding
 import java.text.NumberFormat
-import java.util.*
+
 
 class ListItemAdapter(private val context: Context, private val dataSet:List<Shoes>, val onClick: (Shoes)->Unit) : RecyclerView.Adapter<ListItemAdapter.ItemViewHolder>() {
 
@@ -32,7 +33,6 @@ class ListItemAdapter(private val context: Context, private val dataSet:List<Sho
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val binding = ListItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-
         return ItemViewHolder(binding,context)
     }
 

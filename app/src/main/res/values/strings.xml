@@ -20,4 +20,9 @@
     <string name="yes">yes</string>
     <string name="my_cart">my cart</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="shoes_name">name</string>
+    <string name="shoes_price">price</string>
+    <string name="shoes_quantity">quantity</string>
+    <string name="error_on_code">wrong code</string>
+    <string name="change_mode">mode change</string>
 </resources>

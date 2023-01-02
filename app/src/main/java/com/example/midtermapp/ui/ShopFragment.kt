@@ -1,7 +1,7 @@
 package com.example.midtermapp.ui
 
 import android.os.Bundle
-
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,16 +10,19 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.midtermapp.AppApplication
-import com.example.midtermapp.adapter.ListItemAdapter
 
-import com.example.midtermapp.databinding.FragmentListItemBinding
+import com.example.midtermapp.adapter.ShopListItemAdapter
+import com.example.midtermapp.databinding.FragmentShopBinding
+
 import com.example.midtermapp.viewmodel.ShopShoesViewModel
 import com.example.midtermapp.viewmodel.ShopShoesViewModelFactory
 
-
-class ListItemFragment : Fragment() {
-    private lateinit var binding: FragmentListItemBinding
-    private val shopViewModel: ShopShoesViewModel by activityViewModels {
+/*
+this fragment list all of shop product
+ */
+class ShopFragment : Fragment() {
+    private lateinit var binding: FragmentShopBinding
+    private val shopViewModel : ShopShoesViewModel by activityViewModels {
         ShopShoesViewModelFactory(
             (activity?.application as AppApplication).firebase
         )
@@ -27,22 +30,24 @@ class ListItemFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View {
-        binding = FragmentListItemBinding.inflate(inflater,container,false)
+    ): View? {
+        binding = FragmentShopBinding.inflate(inflater,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-       shopViewModel.retrieveShopShoes().observe(this.viewLifecycleOwner) { data ->
-            val adapter = ListItemAdapter(requireContext(),data) {
-                val action = ListItemFragmentDirections.actionListItemFragmentToDetailFragment(id = it.id)
-                findNavController().navigate(action)
-            }
-            binding.listItemRecyclerview.adapter = adapter
-            binding.listItemRecyclerview.layoutManager = LinearLayoutManager(requireContext())
+        val adapter = ShopListItemAdapter {
+            val action = ShopFragmentDirections.actionShopFragmentToEditFragment(id = it.id)
+            findNavController().navigate(action)
         }
+        shopViewModel.retrieveShopShoes().observe(viewLifecycleOwner) {
+            Log.d("ShopFragment",it.toString())
+            adapter.submitList(it)
+        }
+
+        binding.listItemRecyclerview.adapter = adapter
+        binding.listItemRecyclerview.layoutManager = LinearLayoutManager(this.context)
     }
 
 }

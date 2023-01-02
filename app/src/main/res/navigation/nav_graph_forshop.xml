@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_forshop"
+    app:startDestination="@id/loginShopModeFragment">
+
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.example.midtermapp.ui.ShopFragment"
+        android:label="product list"
+        tools:layout="@layout/fragment_shop" >
+        <action
+            android:id="@+id/action_shopFragment_to_editFragment"
+            app:destination="@id/editFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.example.midtermapp.ui.EditFragment"
+        android:label="edit product"
+        tools:layout="@layout/fragment_edit" >
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_editFragment_to_shopFragment"
+            app:destination="@id/shopFragment"
+            app:popUpTo="@id/shopFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginShopModeFragment"
+        android:name="com.example.midtermapp.ui.LoginShopModeFragment"
+        android:label="login shop product"
+        tools:layout="@layout/fragment_login_shop_mode" >
+        <action
+            android:id="@+id/action_loginShopModeFragment_to_shopFragment"
+            app:destination="@id/shopFragment" />
+    </fragment>
+</navigation>

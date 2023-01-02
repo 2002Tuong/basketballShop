@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:title="@string/my_cart"
-        android:id="@+id/cartFragment"
-        android:icon="@drawable/ic_baseline_local_grocery_store_24"
+        android:title="@string/change_mode"
+        android:id="@+id/changeMode"
+        android:icon="@drawable/ic_change_circle_24"
         app:showAsAction="always" />
 
 </menu>

@@ -23,7 +23,8 @@ class CartFragment : Fragment() {
     private lateinit var binding: FragmentCartBinding
     private val viewModel: UserShoesViewModel by activityViewModels {
         UserShoesViewModelFactory(
-            (activity?.application as AppApplication).database.userShoesDao()
+            (activity?.application as AppApplication).database.userShoesDao(),
+            (activity?.application as AppApplication).firebase
         )
     }
 

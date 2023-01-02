@@ -1,18 +1,19 @@
 package com.example.midtermapp.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+
 import android.view.LayoutInflater
-import android.view.MenuItem
-import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
+
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.example.midtermapp.R
 import com.example.midtermapp.databinding.ActivityMainBinding
+
+
 
 class MainActivity : AppCompatActivity()  {
     private lateinit var binding: ActivityMainBinding
@@ -30,10 +31,19 @@ class MainActivity : AppCompatActivity()  {
             setOf(R.id.listItemFragment),
             fallbackOnNavigateUpListener = ::onSupportNavigateUp)
         binding.topAppBar.setupWithNavController(navController,appBarConfiguration)
-
+        binding.topAppBar.setOnMenuItemClickListener {
+            if(it.itemId == R.id.changeMode) {
+                val intent = Intent(this, ShopActivity::class.java)
+                startActivity(intent)
+                true
+            }else {
+                false
+            }
+        }
         binding.bottomNavigationBar.setupWithNavController(navController)
 
     }
+
 
 }
 

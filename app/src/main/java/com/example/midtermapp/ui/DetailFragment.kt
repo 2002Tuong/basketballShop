@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+
 import androidx.core.net.toUri
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
@@ -15,8 +15,10 @@ import com.example.midtermapp.AppApplication
 import com.example.midtermapp.R
 
 import com.example.midtermapp.databinding.FragmentDetailBinding
-import com.example.midtermapp.datanetwork.DataSource
+
 import com.example.midtermapp.datanetwork.Shoes
+import com.example.midtermapp.viewmodel.ShopShoesViewModel
+import com.example.midtermapp.viewmodel.ShopShoesViewModelFactory
 import com.example.midtermapp.viewmodel.UserShoesViewModel
 import com.example.midtermapp.viewmodel.UserShoesViewModelFactory
 import java.text.NumberFormat
@@ -25,9 +27,16 @@ import java.text.NumberFormat
 class DetailFragment : Fragment() {
     private val viewModel : UserShoesViewModel by activityViewModels() {
         UserShoesViewModelFactory(
-            (activity?.application as AppApplication).database.userShoesDao()
+            (activity?.application as AppApplication).database.userShoesDao(),
+            (activity?.application as AppApplication).firebase
         )
     }
+    private val shopViewModel : ShopShoesViewModel by activityViewModels {
+        ShopShoesViewModelFactory(
+            (activity?.application as AppApplication).firebase
+        )
+    }
+
     private lateinit var binding : FragmentDetailBinding
     private val navigationArgs : DetailFragmentArgs by navArgs()
     private lateinit var shoes: Shoes
@@ -42,17 +51,20 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
+        //(requireActivity() as AppCompatActivity).supportActionBar?.hide()
         val id = navigationArgs.id
-        for(item in DataSource.loadShoes(requireContext())) {
-            if(id == item.id) {
-                shoes = item
-                break
+        shopViewModel.retrieveShopShoes().observe(viewLifecycleOwner) { listShopShoes ->
+            for (item in listShopShoes!!) {
+                if (id == item.id) {
+                    shoes = item
+                    break
+                }
             }
-        }
-        binding(shoes)
-        pickSize()
 
+            binding(shoes)
+            pickSize()
+
+        }
     }
 
     private fun binding(shoes: Shoes) {
@@ -62,8 +74,13 @@ class DetailFragment : Fragment() {
         binding.nameTv.text = shoes.name
         binding.priceTv.text = NumberFormat.getCurrencyInstance().format(shoes.price)
         binding.addBtn.setOnClickListener {
-            viewModel.insert(shoes.name,shoes.price,size, shoes.imgUrl)
-            Toast.makeText(this.context,"add to cart success", Toast.LENGTH_LONG).show()
+            if(shoes.quantity > 0) {
+                viewModel.insert(shoes.id,shoes.name,shoes.price,size, shoes.imgUrl)
+                Toast.makeText(this.context,"add to cart success", Toast.LENGTH_LONG).show()
+            }else {
+                Toast.makeText(this.context, "this product is out of stock", Toast.LENGTH_SHORT).show()
+            }
+
         }
         binding.sizeSelectionRadioGroup.setOnCheckedChangeListener { _, _ ->
             pickSize()

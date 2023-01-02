@@ -1,6 +1,6 @@
 package com.example.midtermapp.database
 
-import android.content.ClipData
+
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
@@ -20,4 +20,7 @@ interface UserShoesDao {
     suspend fun update(shoes: UserShoes)
     @Query("delete from UserShoes where is_buy == 1")
     suspend fun bought()
+    @Query("select id from UserShoes where is_buy == 1")
+    suspend fun updateServerDb(): List<Int>
+
 }
