@@ -3,6 +3,7 @@ package com.example.midtermapp.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 
 import android.view.LayoutInflater
 
@@ -12,7 +13,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.midtermapp.R
 import com.example.midtermapp.databinding.ActivityMainBinding
-
+import com.example.midtermapp.datanetwork.DataSource
 
 
 class MainActivity : AppCompatActivity()  {
@@ -41,6 +42,8 @@ class MainActivity : AppCompatActivity()  {
             }
         }
         binding.bottomNavigationBar.setupWithNavController(navController)
+
+
 
     }
 

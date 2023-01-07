@@ -1,28 +1,37 @@
 package com.example.midtermapp.datanetwork
 
 
+import android.content.Context
 import android.util.Log
-
+import android.view.Display.Mode
+import com.example.midtermapp.R
 
 
 import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 import kotlinx.coroutines.tasks.await
+import okio.IOException
+import java.io.InputStreamReader
 
 
 object DataSource {
+    fun loadModel(context: Context): List<Model3D> {
+        try {
+            val inputStream = context.resources.openRawResource(R.raw.model)
+            val itemType = object : TypeToken<List<Model3D>>(){}.type
+            val reader = InputStreamReader(inputStream)
+            return Gson().fromJson<List<Model3D>>(reader, itemType)
+        }catch (e: IOException) {
 
-//    fun loadShoes(context : Context) : LiveData<List<Shoes>>{
-//        val job = Job()
-//        var data = MutableLiveData<List<Shoes>>()
-//         CoroutineScope(job + Dispatchers.IO).launch {
-//             data.postValue(FirebaseDatabase().getListShoes().toListOfShoes())
-//        }
-//        return data
-//    }
+        }
+        return listOf<Model3D>()
+    }
+
     fun loadLocations(): List<ShopLocation> {
         return listOf<ShopLocation>(
             ShopLocation(LatLng(10.765706, 106.665205),"phụ kiện bóng rổ", "289 Nguyễn Tiểu La, Phường 8, Quận 10, Thành phố Hồ Chí Minh 70000"),
