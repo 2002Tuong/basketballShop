@@ -43,6 +43,20 @@ class ListItemFragment : Fragment() {
             binding.listItemRecyclerview.adapter = adapter
             binding.listItemRecyclerview.layoutManager = LinearLayoutManager(requireContext())
         }
+
+        binding.swipeRefresh.setOnRefreshListener {
+            shopViewModel.retrieveShopShoes()
+                .observe(this@ListItemFragment.viewLifecycleOwner) { data ->
+                    val adapter = ListItemAdapter(requireContext(), data) {
+                        val action =
+                            ListItemFragmentDirections.actionListItemFragmentToDetailFragment(id = it.id)
+                        findNavController().navigate(action)
+                    }
+                    binding.listItemRecyclerview.adapter = adapter
+                    binding.listItemRecyclerview.layoutManager = LinearLayoutManager(requireContext())
+                    binding.swipeRefresh.isRefreshing = false
+                }
+        }
     }
 
 }

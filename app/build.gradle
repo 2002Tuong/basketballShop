@@ -94,4 +94,6 @@ dependencies {
 
     //ar core
     implementation "com.google.ar:core:1.35.0"
+    //swipe refresh layout
+    implementation"androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 }
